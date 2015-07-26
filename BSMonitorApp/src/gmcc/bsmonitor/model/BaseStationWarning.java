@@ -4,29 +4,68 @@ import java.sql.Date;
 
 public class BaseStationWarning {
 
-	private String id; //基站id
-	private Date warningHappenTime; //告警发生时间
-	private Date warningFindTime; //告警发现时间
-	private String warningTitle; //告警标题
-	private String warningLevel; //告警级别
+	private int btsId; //缃戝厓id
+	private String btsName; //缃戝厓鍚嶇О
+	private String city; //鍛婅鍩庡競
+	private String deviceType;  //璁惧绫诲瀷
+	private String warningDeviceType; //鍛婅瀵硅薄璁惧绫诲瀷
+	private String warningFactoryLevel; //鍘傚鍛婅绾у埆
+	private int factoryId; //鍘傚鍘熷ID
+	private String factoryName; //鍘傚鍚嶇О
+	private String warningTitle; //鍛婅鏍囬
+	private String warningNetAdminLevel; //缃戠鍛婅绾у埆
+	private Date warningHappenTime; //鍛婅鍙戠敓鏃堕棿
+	private Date warningClearTime; //鍛婅娓呴櫎鏃堕棿
+	private int warningFactoryId; //鍘傚鍛婅ID
+	private int warningNetAdminId; //缃戣鍛婅ID
 	
-	public String getId() {
-		return id;
+	public int getBtsId() {
+		return btsId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setBtsId(int btsId) {
+		this.btsId = btsId;
 	}
-	public Date getWarningHappenTime() {
-		return warningHappenTime;
+	public String getBtsName() {
+		return btsName;
 	}
-	public void setWarningHappenTime(Date warningHappenTime) {
-		this.warningHappenTime = warningHappenTime;
+	public void setBtsName(String btsName) {
+		this.btsName = btsName;
 	}
-	public Date getWarningFindTime() {
-		return warningFindTime;
+	public String getCity() {
+		return city;
 	}
-	public void setWarningFindTime(Date warningFindTime) {
-		this.warningFindTime = warningFindTime;
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getDeviceType() {
+		return deviceType;
+	}
+	public void setDeviceType(String deviceType) {
+		this.deviceType = deviceType;
+	}
+	public String getWarningDeviceType() {
+		return warningDeviceType;
+	}
+	public void setWarningDeviceType(String warningDeviceType) {
+		this.warningDeviceType = warningDeviceType;
+	}
+	public String getWarningFactoryLevel() {
+		return warningFactoryLevel;
+	}
+	public void setWarningFactoryLevel(String warningFactoryLevel) {
+		this.warningFactoryLevel = warningFactoryLevel;
+	}
+	public int getFactoryId() {
+		return factoryId;
+	}
+	public void setFactoryId(int factoryId) {
+		this.factoryId = factoryId;
+	}
+	public String getFactoryName() {
+		return factoryName;
+	}
+	public void setFactoryName(String factoryName) {
+		this.factoryName = factoryName;
 	}
 	public String getWarningTitle() {
 		return warningTitle;
@@ -34,11 +73,36 @@ public class BaseStationWarning {
 	public void setWarningTitle(String warningTitle) {
 		this.warningTitle = warningTitle;
 	}
-	public String getWarningLevel() {
-		return warningLevel;
+	public String getWarningNetAdminLevel() {
+		return warningNetAdminLevel;
 	}
-	public void setWarningLevel(String warningLevel) {
-		this.warningLevel = warningLevel;
+	public void setWarningNetAdminLevel(String warningNetAdminLevel) {
+		this.warningNetAdminLevel = warningNetAdminLevel;
 	}
-
+	public Date getWarningHappenTime() {
+		return warningHappenTime;
+	}
+	public void setWarningHappenTime(Date warningHappenTime) {
+		this.warningHappenTime = warningHappenTime;
+	}
+	public Date getWarningClearTime() {
+		return warningClearTime;
+	}
+	public void setWarningClearTime(Date warningClearTime) {
+		this.warningClearTime = warningClearTime;
+	}
+	public int getWarningFactoryId() {
+		return warningFactoryId;
+	}
+	public void setWarningFactoryId(int warningFactoryId) {
+		this.warningFactoryId = warningFactoryId;
+	}
+	public int getWarningNetAdminId() {
+		return warningNetAdminId;
+	}
+	public void setWarningNetAdminId(int warningNetAdminId) {
+		this.warningNetAdminId = warningNetAdminId;
+	}
+	
+	
 }
