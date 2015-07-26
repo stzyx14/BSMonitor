@@ -26,7 +26,8 @@
                android:layout_marginBottom="8dp"
                android:layout_marginRight="8dp"
                android:orientation="vertical"
-               android:background="@drawable/shape_list_overall">
+               android:background="@drawable/shape_list_overall"
+               android:onClick="ViewClick">
                <LinearLayout
                    android:layout_width="match_parent"
                    android:layout_height="0dp"
@@ -90,7 +91,8 @@
                android:layout_marginLeft="8dp"
                android:layout_marginBottom="8dp"
                android:orientation="vertical"
-               android:background="@drawable/shape_list_normal">
+               android:background="@drawable/shape_list_normal"
+               android:onClick="ViewClick">
                <!-- 正常工作 -->
                <LinearLayout
                    android:layout_width="match_parent"
@@ -162,7 +164,8 @@
                android:layout_marginLeft="16dp"
                android:layout_marginBottom="16dp"
                android:orientation="vertical"
-               android:background="@drawable/shape_list_out_of_service">
+               android:background="@drawable/shape_list_out_of_service"
+               android:onClick="ViewClick">
                <!-- 退服-->
                <LinearLayout
                    android:layout_width="match_parent"
@@ -229,7 +232,8 @@
                android:layout_marginLeft="8dp"
                android:layout_marginBottom="16dp"
                android:orientation="vertical"
-               android:background="@drawable/shape_list_power_off">
+               android:background="@drawable/shape_list_power_off"
+               android:onClick="ViewClick">
                <!-- 断电 -->
                <LinearLayout
                    android:layout_width="match_parent"

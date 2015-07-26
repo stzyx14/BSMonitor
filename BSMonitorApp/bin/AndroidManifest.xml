@@ -22,12 +22,11 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="eBDb9ZZNq6v9Ed5MyG2niAbo" />
+      
         <activity 
             android:name=".activity.SplashActivity"
             android:label="@string/app_name">
+            
             
         </activity>
 		<activity android:name=".activity.LoginActivity">

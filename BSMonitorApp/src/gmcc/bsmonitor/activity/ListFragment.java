@@ -7,7 +7,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -18,7 +23,7 @@ import android.view.ViewGroup;
  * Use the {@link ListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListFragment extends Fragment {
+public class ListFragment extends Fragment implements OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +34,18 @@ public class ListFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    
+    //显示4种状态基站数量的数字；
+    private TextView mOverallTextView;
+    private TextView mNormalTextView;
+    private TextView mOutOfServiceTextView;	
+    private TextView mPowerOffTextView;
+    
+    //以下四个View为按钮，点击进入对应状态基站告警列表；
+    private LinearLayout mOverallView;
+    private LinearLayout mNormalView;
+    private LinearLayout mOutServiceView;
+    private LinearLayout mPowerOffView;
 
     /**
      * Use this factory method to create a new instance of
@@ -65,10 +82,35 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+    	View rootView = inflater.inflate(R.layout.fragment_list, container, false);
+
+    	//此处判断传入的对象非空
+    	if(true){
+    		initView(rootView);
+    	}
+    	
+    	return rootView;   
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    private void initView(View rootView) {
+		// TODO Auto-generated method stub
+    	mOverallTextView = (TextView) rootView.findViewById(R.id.tv_list_overall);
+    	mNormalTextView = (TextView) rootView.findViewById(R.id.tv_list_normal);
+    	mOutOfServiceTextView = (TextView) rootView.findViewById(R.id.tv_list_out_of_service);
+    	mPowerOffTextView = (TextView) rootView.findViewById(R.id.tv_list_power_off);
+    	
+    	mOverallView = (LinearLayout) rootView.findViewById(R.id.ll_list_overall);
+    	mOverallView.setOnClickListener(this);
+    	mNormalView = (LinearLayout) rootView.findViewById(R.id.ll_list_normal);
+    	mNormalView.setOnClickListener(this);
+    	mOutServiceView = (LinearLayout) rootView.findViewById(R.id.ll_list_out_of_service);
+    	mOutServiceView.setOnClickListener(this);
+    	mPowerOffView = (LinearLayout) rootView.findViewById(R.id.ll_list_power_off);
+    	mPowerOffView.setOnClickListener(this);
+    	
+	}
+
+	// TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -106,5 +148,30 @@ public class ListFragment extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch(v.getId()){
+    	case R.id.ll_list_overall:
+    		//跳转至OverallList
+    		Toast.makeText(getActivity(), "ll_list_overall", Toast.LENGTH_SHORT).show();
+    		break;
+    	case R.id.ll_list_normal:
+    		//跳转至NormalList
+    		Toast.makeText(getActivity(), "ll_list_normal", Toast.LENGTH_SHORT).show();
+    		break;
+    	case R.id.ll_list_out_of_service:
+    		//跳转至退服告警列表
+    		Toast.makeText(getActivity(), "ll_list_out_of_service", Toast.LENGTH_SHORT).show();
+    		break;
+    	case R.id.ll_list_power_off:
+    		//jump 2 list of poweroff alarm
+    		Toast.makeText(getActivity(), "ll_list_power_off", Toast.LENGTH_SHORT).show();
+    		break;
+		default:
+			break;
+	}
+	}
 
 }
