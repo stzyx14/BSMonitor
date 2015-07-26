@@ -1,5 +1,7 @@
 package gmcc.bsmonitor.activity;
 
+
+
 import gmcc.bsmonitor.R;
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,7 +14,7 @@ public class LoginActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
     	// TODO Auto-generated method stub
     			super.onCreate(savedInstanceState);
-    			requestWindowFeature(Window.FEATURE_NO_TITLE); // Òþ²ØÏîÄ¿±êÌâ
+    			requestWindowFeature(Window.FEATURE_NO_TITLE); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
     	//		 this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
     	//	        		WindowManager.LayoutParams.FLAG_FULLSCREEN);
     			this.setContentView(R.layout.login);
