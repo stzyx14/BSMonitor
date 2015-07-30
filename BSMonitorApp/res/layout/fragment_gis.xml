@@ -12,7 +12,6 @@
 
     <!--</com.baidu.mapapi.map.MapView>-->
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="24dp"
@@ -21,6 +20,7 @@
         android:orientation="horizontal"
         >
         <LinearLayout
+            android:id="@+id/ll_float_overall_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -48,6 +48,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/ll_float_normal_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -75,6 +76,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/ll_float_service_out_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -102,6 +104,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/ll_float_power_off_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -117,7 +120,7 @@
                 android:gravity="center"
                 android:layout_gravity="center"/>
             <TextView
-                android:id="@+id/tv_float_electric"
+                android:id="@+id/tv_float_power_off"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
