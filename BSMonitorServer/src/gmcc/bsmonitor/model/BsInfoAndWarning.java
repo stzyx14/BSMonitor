@@ -1,9 +1,7 @@
 package gmcc.bsmonitor.model;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
-
-import javax.persistence.Column;
+import java.util.Date;
 
 import com.google.gson.JsonObject;
 

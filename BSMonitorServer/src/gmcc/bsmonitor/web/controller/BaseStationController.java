@@ -35,6 +35,7 @@ public class BaseStationController {
 		JsonArray jsonArr = new JsonArray();
 		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
 			BsInfoAndWarning bsInfoAndWarning = (BsInfoAndWarning) iterator.next();
+			System.out.println(bsInfoAndWarning.getWarningHappenTime());
 			jsonArr.add(bsInfoAndWarning.toJson());
 		}
 		System.out.println(jsonArr.toString());
