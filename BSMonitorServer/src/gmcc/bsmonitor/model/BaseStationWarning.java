@@ -2,46 +2,66 @@ package gmcc.bsmonitor.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.google.gson.JsonObject;
+
+@Entity
+@Table(name="tb_bswarning")
 public class BaseStationWarning {
 
-	private int btsId; //网元id
-	private String btsName; //网元名称
-	private String city; //告警城市
-	private String deviceType;  //设备类型
-	private String warningDeviceType; //告警对象设备类型
-	private String warningFactoryLevel; //厂家告警级别
-	private int factoryId; //厂家原始ID
-	private String factoryName; //厂家名称
-	private String warningTitle; //告警标题
-	private String warningNetAdminLevel; //网管告警级别
-	private Date warningHappenTime; //告警发生时间
-	private Date warningClearTime; //告警清除时间
-	private int warningFactoryId; //厂家告警ID
-	private int warningNetAdminId; //网警告警ID
+	@Id
+	private int id;
 	
+	@Column(name="bts_id")
+	private int btsId; //网元id
+	
+	private String city; //告警城市
+	
+	@Column(name="warning_device_type")
+	private String warningDeviceType; //告警对象设备类型
+	
+	@Column(name="warning_factory_level")
+	private String warningFactoryLevel; //厂家告警级别
+	
+	@Column(name="warning_title")
+	private String warningTitle; //告警标题
+	
+	@Column(name="warning_netadmin_level")
+	private String warningNetAdminLevel; //网管告警级别
+	
+	@Column(name="warning_happen_time")
+	private Date warningHappenTime; //告警发生时间
+	
+	@Column(name="warning_clear_time")
+	private Date warningClearTime; //告警清除时间
+	
+	@Column(name="warning_factory_id")
+	private String warningFactoryId; //厂家告警ID
+	
+	@Column(name="warning_netadmin_id")
+	private String warningNetAdminId; //网警告警ID
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getBtsId() {
 		return btsId;
 	}
 	public void setBtsId(int btsId) {
 		this.btsId = btsId;
 	}
-	public String getBtsName() {
-		return btsName;
-	}
-	public void setBtsName(String btsName) {
-		this.btsName = btsName;
-	}
 	public String getCity() {
 		return city;
 	}
 	public void setCity(String city) {
 		this.city = city;
-	}
-	public String getDeviceType() {
-		return deviceType;
-	}
-	public void setDeviceType(String deviceType) {
-		this.deviceType = deviceType;
 	}
 	public String getWarningDeviceType() {
 		return warningDeviceType;
@@ -54,18 +74,6 @@ public class BaseStationWarning {
 	}
 	public void setWarningFactoryLevel(String warningFactoryLevel) {
 		this.warningFactoryLevel = warningFactoryLevel;
-	}
-	public int getFactoryId() {
-		return factoryId;
-	}
-	public void setFactoryId(int factoryId) {
-		this.factoryId = factoryId;
-	}
-	public String getFactoryName() {
-		return factoryName;
-	}
-	public void setFactoryName(String factoryName) {
-		this.factoryName = factoryName;
 	}
 	public String getWarningTitle() {
 		return warningTitle;
@@ -91,18 +99,31 @@ public class BaseStationWarning {
 	public void setWarningClearTime(Date warningClearTime) {
 		this.warningClearTime = warningClearTime;
 	}
-	public int getWarningFactoryId() {
+	public String getWarningFactoryId() {
 		return warningFactoryId;
 	}
-	public void setWarningFactoryId(int warningFactoryId) {
+	public void setWarningFactoryId(String warningFactoryId) {
 		this.warningFactoryId = warningFactoryId;
 	}
-	public int getWarningNetAdminId() {
+	public String getWarningNetAdminId() {
 		return warningNetAdminId;
 	}
-	public void setWarningNetAdminId(int warningNetAdminId) {
+	public void setWarningNetAdminId(String warningNetAdminId) {
 		this.warningNetAdminId = warningNetAdminId;
 	}
-	
+	public JsonObject toJson(){
+		JsonObject json = new JsonObject();
+		json.addProperty("btsId", btsId);
+		json.addProperty("city", city);
+		json.addProperty("warningDeviceType", warningDeviceType);
+		json.addProperty("warningFactoryLevel", warningFactoryLevel);
+		json.addProperty("warningTitle", warningTitle);
+		json.addProperty("warningNetAdminLevel", warningNetAdminLevel);
+		json.addProperty("warningHappenTime", warningHappenTime.toString());
+		json.addProperty("warningClearTime", warningClearTime.toString());
+		json.addProperty("warningFactoryId", warningFactoryId);
+		json.addProperty("warningNetAdminId", warningNetAdminId);
+		return json;
+	}
 	
 }

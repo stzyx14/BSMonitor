@@ -2,25 +2,36 @@ package gmcc.bsmonitor.dao.impl;
 
 import gmcc.bsmonitor.dao.BaseStationInfoDao;
 import gmcc.bsmonitor.model.BaseStationInfo;
-import gmcc.bsmonitor.utils.DBUtil;
+import gmcc.bsmonitor.utils.HibernateUtil;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
 
 /**
  * Implement of BaseStationInfoDao Interface
  * @author zyx
  */
+@Repository(value="baseStationInfoDaoImpl")
 public class BaseStationInfoDaoImpl implements BaseStationInfoDao {
 
-	/* (non-Javadoc)
-	 * @see gmcc.bsmonitor.dao.impl.BaseStationInfoDao#getAll()
-	 */
+	@Resource
+	private HibernateUtil hibernateUtil;
+	
+	public HibernateUtil getHibernateUtil() {
+		return hibernateUtil;
+	}
+
+	public void setHibernateUtil(HibernateUtil hibernateUtil) {
+		this.hibernateUtil = hibernateUtil;
+	}
+
 	@Override
 	public List<BaseStationInfo> getAll(){
-		String sql = "select * from tb_bsinfo";
+		/*String sql = "select * from tb_bsinfo";
 		List<BaseStationInfo> list = new ArrayList<BaseStationInfo>();
 		try {
 			ResultSet rs = DBUtil.excuteQuery(sql);
@@ -32,15 +43,14 @@ public class BaseStationInfoDaoImpl implements BaseStationInfoDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		return list;*/
+		String hql = "from BaseStationInfo";
+		return hibernateUtil.exeQuery(hql);
 	}
 	
-	/* (non-Javadoc)
-	 * @see gmcc.bsmonitor.dao.impl.BaseStationInfoDao#getBaseStationInfo(int)
-	 */
 	@Override
 	public BaseStationInfo getBaseStationInfo(int id){
-		String sql = "select * from tb_bsinfo where bts_id=?";
+		/*String sql = "select * from tb_bsinfo where bts_id=?";
 		BaseStationInfo baseStationInfo = null;
 		try {
 			ResultSet rs = DBUtil.excuteQuery(sql, id);
@@ -51,15 +61,17 @@ public class BaseStationInfoDaoImpl implements BaseStationInfoDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return baseStationInfo;
+		return baseStationInfo;*/
+		String hql = "from BaseStationInfo where bts_id="+id;
+		return (BaseStationInfo)hibernateUtil.exeQuery(hql).get(0);
 	}
 	
-	private BaseStationInfo fillBSInfo(ResultSet rs) throws SQLException{
+	/*private BaseStationInfo fillBSInfo(ResultSet rs) throws SQLException{
 		BaseStationInfo baseStationInfo = new BaseStationInfo();
-		baseStationInfo.setBtsId(rs.getString("bts_id"));
+		baseStationInfo.setBtsId(rs.getInt("bts_id"));
 		baseStationInfo.setBtsName(rs.getString("bts_name"));
 		baseStationInfo.setLongitude(rs.getDouble("longitude"));
 		baseStationInfo.setLatitude(rs.getDouble("latitude"));
 		return baseStationInfo;
-	}
+	}*/
 }
